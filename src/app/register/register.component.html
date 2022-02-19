@@ -1,0 +1,25 @@
+<section class="row pt-5">
+  <div class="col-md-6 mx-auto">
+    <div class="card">
+      <header class="card-header">
+        <span>Register</span>
+      </header>
+
+      <div class="card-body">
+        <form class="form">
+          <div class="form-group">
+            <label for="">Useraname</label>
+            <input [(ngModel)]="regValues.username" type="text" name="username" class="form-control">
+          </div>
+
+          <div class="form-group pt-3">
+            <label for="">Password</label>
+            <input type="password" [(ngModel)]="regValues.password" name="password" class="form-control">
+          </div>
+          <button (click)="register()" type="button" class="btn btn-dark mt-3 float-right">Sign up</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
