@@ -1,3 +1,4 @@
+import { IRegisterForm } from './../typedefs';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  public regValues: { username: string; password: string; } = {
+  public regValues: IRegisterForm = {
     username: "",
     password: ""
   }
@@ -19,7 +20,8 @@ export class RegisterComponent implements OnInit {
   }
 
   register(): void {
-    this.auth.registerNewUser(this.regValues).subscribe(res => {
+    
+    this.auth.registerNewUser<IRegisterForm>(this.regValues).subscribe(res => {
       console.log(res);
     });
   }

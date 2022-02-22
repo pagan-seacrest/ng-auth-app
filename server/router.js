@@ -11,11 +11,12 @@ connect(mongo, err => err ? console.error(err) : console.log("Connected to mongo
 
 
 router.get("/", (req, res) => {
-
+  res.end("Server listening")
 });
 
 router.post("/register", (req, res) => {
   let body = req.body;
+  console.log("Register >> ", body);
   let profile = new Profile(body);
   profile.save((err, ok) => {
     if (err) {
