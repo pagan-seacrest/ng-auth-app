@@ -1,4 +1,4 @@
-import { IRegisterForm } from './typedefs';
+import { IFormData } from './typedefs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
   private regURL = "http://localhost:3000/register";
+  private loginURL = "http://localhost:3000/login";
 
   constructor(private http: HttpClient) {
 
@@ -15,5 +16,9 @@ export class AuthService {
 
   registerNewUser<T>(userData: T): Observable<any> {
     return this.http.post<T>(this.regURL, userData);
+  }
+
+  login<T>(userData: T): Observable<any> {
+    return this.http.post<T>(this.loginURL, userData);
   }
 }

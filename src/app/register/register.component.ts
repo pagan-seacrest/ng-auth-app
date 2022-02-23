@@ -1,4 +1,4 @@
-import { IRegisterForm } from './../typedefs';
+import { IFormData } from './../typedefs';
 import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  public regValues: IRegisterForm = {
+  public regValues: IFormData = {
     username: "",
     password: ""
   }
@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
 
   register(): void {
     
-    this.auth.registerNewUser<IRegisterForm>(this.regValues).subscribe(res => {
+    this.auth.registerNewUser<IFormData>(this.regValues).subscribe(res => {
       console.log(res);
     });
   }
